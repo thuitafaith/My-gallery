@@ -25,3 +25,7 @@ class ImageTestClass(TestCase):
         self.new_image.update_image(self.new_image.id,'snaps/img1.png')
         image = Image.objects.filter(image_link= 'snaps/img1.png').all()
         self.assertTrue(len(image)==1)
+    def test_get_image_by_id(self):
+        find_img = self.new_image.get_image_by_id(self.new_image.id)
+        img = Image.objects.filter(id = self.new_image.id)
+        self.assertTrue(find_img,img)

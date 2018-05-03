@@ -15,6 +15,10 @@ class Image(models.Model):
     @classmethod
     def update_image(cls,id,link):
         cls.objects.filter(id = id).update(image_link=link)
+    @classmethod
+    def get_image_by_id(cls,id):
+        imge = cls.objects.filter(id =id).all()
+        return imge
 class Location(models.Model):
     location = models.CharField(max_length = 60)
 class Category(models.Model):
