@@ -10,16 +10,26 @@ class Image(models.Model):
 
     def save_image(self):
         self.save()
+
     def delete_image(self):
         self.delete()
+
     @classmethod
     def update_image(cls,id,link):
         cls.objects.filter(id = id).update(image_link=link)
+
     @classmethod
     def get_image_by_id(cls,id):
         imge = cls.objects.filter(id =id).all()
         return imge
+
+    @classmethod
+    def search_by_cate(cls,cat):
+        image = cls.objects.filter(category__category_name=cat).all()
+        return image
+
 class Location(models.Model):
-    location = models.CharField(max_length = 60)
+    location_name = models.CharField(max_length = 60)
+
 class Category(models.Model):
-    category = models.CharField(max_length = 60)
+    category_name = models.CharField(max_length = 60)
