@@ -28,6 +28,11 @@ class Image(models.Model):
         image = cls.objects.filter(category__category_name=cat).all()
         return image
 
+    @classmethod
+    def search_by_loc(cls,loc):
+        image = cls.objects.filter(location__location_name=loc).all()
+        return image
+
 class Location(models.Model):
     location_name = models.CharField(max_length = 60)
 

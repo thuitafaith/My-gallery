@@ -32,3 +32,6 @@ class ImageTestClass(TestCase):
     def test_search_image_by_category(self):
         find_img = self.new_image.search_by_cate('travel')
         self.assertTrue(len(find_img)==1)
+    def test_search_image_by_location(self):
+        find_img = self.new_image.search_by_loc('dubai')
+        self.assertTrue(len(find_img)==1)
