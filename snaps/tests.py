@@ -35,3 +35,22 @@ class ImageTestClass(TestCase):
     def test_search_image_by_location(self):
         find_img = self.new_image.search_by_loc('dubai')
         self.assertTrue(len(find_img)==1)
+    def tearDown(self):
+        Image.objects.all().delete()
+        Location.objects.all().delete()
+        Category.objects.all().delete()
+class LocationTestClass(TestCase):
+    def setUp(self):
+        self.location=Location(location_name='dubai')
+        self.location.save()
+    def test_instance(self):
+        self.assertTrue(isinstance(self.location,Location))
+    def test_save_method(self):
+        self.location.save_location()
+        location = Location.objects.all()
+        self.assertTrue(len(location)>0)
+    def test_delete_method(self):
+        self.location.save_location()
+        location = Location.objects.all()
+        self.location.delete_location()
+        self.assertTrue(len(location)==0)
