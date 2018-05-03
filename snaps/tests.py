@@ -83,3 +83,5 @@ class CategoryTestClass(TestCase):
         self.category.update_category(self.category.id,new_category_name)
         new_category = Category.objects.filter(category_name='music')
         self.assertTrue(len(new_category)==1)
+    def tearDown(self):
+        Category.objects.all().delete()
