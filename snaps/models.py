@@ -52,3 +52,7 @@ class Category(models.Model):
         self.save()
     def delete_category(self):
         self.delete()
+
+    @classmethod
+    def update_category(cls,id,new_cate):
+        cls.objects.filter(id=id).update(category_name=new_cate)
