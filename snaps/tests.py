@@ -62,6 +62,7 @@ class LocationTestClass(TestCase):
         self.assertTrue(len(new_location)==1)
     def tearDown(self):
         Location.objects.all().delete()
+
 class CategoryTestClass(TestCase):
     def setUp(self):
         self.category=Category(category_name='food')
@@ -72,3 +73,8 @@ class CategoryTestClass(TestCase):
         self.category.save_category()
         category =Category.objects.all()
         self.assertTrue(len(category)>0)
+    def test_delete_method(self):
+        self.category.save_category()
+        category = Category.objects.all()
+        self.category.delete_category()
+        self.assertTrue(len(category)==0)
