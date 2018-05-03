@@ -10,6 +10,8 @@ class Image(models.Model):
 
     def save_image(self):
         self.save()
+    def delete_image(self):
+        self.delete()
 class Location(models.Model):
     location = models.CharField(max_length = 60)
 class Category(models.Model):
