@@ -39,6 +39,7 @@ class ImageTestClass(TestCase):
         Image.objects.all().delete()
         Location.objects.all().delete()
         Category.objects.all().delete()
+
 class LocationTestClass(TestCase):
     def setUp(self):
         self.location=Location(location_name='dubai')
@@ -59,3 +60,15 @@ class LocationTestClass(TestCase):
         self.location.update_location(self.location.id,new_location_name)
         new_location = Location.objects.filter(location_name='maldives')
         self.assertTrue(len(new_location)==1)
+    def tearDown(self):
+        Location.objects.all().delete()
+class CategoryTestClass(TestCase):
+    def setUp(self):
+        self.category=Category(category_name='food')
+        self.category.save()
+    def test_instance(self):
+        self.assertTrue(isinstance(self.category,Category))
+    def test_save_method(self):
+        self.category.save_category()
+        category =Category.objects.all()
+        self.assertTrue(len(category)>0)
