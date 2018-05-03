@@ -54,3 +54,8 @@ class LocationTestClass(TestCase):
         location = Location.objects.all()
         self.location.delete_location()
         self.assertTrue(len(location)==0)
+    def test_update_method(self):
+        new_location_name = 'maldives'
+        self.location.update_location(self.location.id,new_location_name)
+        new_location = Location.objects.filter(location_name='maldives')
+        self.assertTrue(len(new_location)==1)

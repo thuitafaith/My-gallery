@@ -40,5 +40,10 @@ class Location(models.Model):
         self.save()
     def delete_location(self):
         self.delete()
+
+    @classmethod
+    def update_location(cls,id,new_loc):
+        cls.objects.filter(id =id).update(location_name=new_loc)
+
 class Category(models.Model):
     category_name = models.CharField(max_length = 60)
