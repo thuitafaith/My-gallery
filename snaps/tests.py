@@ -20,3 +20,8 @@ class ImageTestClass(TestCase):
         images = Image.objects.all()
         self.new_image.delete_image()
         self.assertTrue(len(images)==0)
+    def test_update_method(self):
+        self.new_image.save_image()
+        self.new_image.update_image(self.new_image.id,'snaps/img1.png')
+        image = Image.objects.filter(image_link= 'snaps/img1.png').all()
+        self.assertTrue(len(image)==1)

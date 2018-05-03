@@ -12,6 +12,9 @@ class Image(models.Model):
         self.save()
     def delete_image(self):
         self.delete()
+    @classmethod
+    def update_image(cls,id,link):
+        cls.objects.filter(id = id).update(image_link=link)
 class Location(models.Model):
     location = models.CharField(max_length = 60)
 class Category(models.Model):
