@@ -28,7 +28,7 @@ class Image(models.Model):
 
     @classmethod
     def search_by_cate(cls,cat):
-        image = cls.objects.filter(category__category_name=cat).all()
+        image = cls.objects.filter(category__category_name__icontains=cat).all()
         return image
 
     @classmethod
