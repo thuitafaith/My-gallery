@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'snaps.apps.SnapsConfig',
+    'snaps',
+    'bootstrap3',
 ]
 
 MIDDLEWARE = [
