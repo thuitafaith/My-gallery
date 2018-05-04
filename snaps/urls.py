@@ -5,6 +5,7 @@ from . import views
 
 urlpatterns=[
     url(r'^$',views.intro,name = 'intro')
+    url(r'^search/',views.search, name='search')
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
