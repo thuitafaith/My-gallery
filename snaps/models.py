@@ -2,11 +2,14 @@ from django.db import models
 
 # Create your models here.
 class Image(models.Model):
-    image_link = models.ImageField(upload_to ='snaps/')
+    image_link = models.ImageField(upload_to ='pics/')
     name = models.CharField(max_length = 100)
     description = models.TextField()
     location = models.ForeignKey('Location',null = True)
     category = models.ForeignKey('Category', null =True)
+
+    def __str__(self):
+        return self.description
 
     def save_image(self):
         self.save()
@@ -36,6 +39,9 @@ class Image(models.Model):
 class Location(models.Model):
     location_name = models.CharField(max_length = 60)
 
+    def __str__(self):
+        return self.location_name
+
     def save_location(self):
         self.save()
     def delete_location(self):
@@ -47,6 +53,9 @@ class Location(models.Model):
 
 class Category(models.Model):
     category_name = models.CharField(max_length = 60)
+
+    def __str__(self):
+        return self.category_name
 
     def save_category(self):
         self.save()
