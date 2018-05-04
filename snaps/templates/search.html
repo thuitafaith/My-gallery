@@ -16,7 +16,8 @@
   {% if images %}
     {% for image in images %}
       <div class="col-sm-6 col-md-3">
-          <h1>{{image.category}}</h1>
+        <h1>{{image.category}}</h1>
+        <img src="{{image.image_link.url}}" class="img-responsive" max-width="300" height="300">
       </div>
     {% endfor %}
   {% endif %}
