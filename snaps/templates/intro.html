@@ -4,8 +4,14 @@
 {% block content %}
 <h1>Introducing SNAPS</h1>
 <div class="row">
+
 {% for img in images %}
+<div class="col-md-4 col-sm-12 col-xs-12 col-lg-4">
 <img src="{{img.image_link.url}}" class="img-responsive my_Img" alt="{{image.name}}" width="300" height ="200">
+
+<div id = 'butn'>
+<button class="btn btn-info btn-sm">INFO</button>
+</div>
   <div id="Modal_pic" class="modal">
 
   <!-- The Close Button -->
@@ -20,4 +26,5 @@
 </div>
 
 {% endfor %}
+</div>
 {% endblock %}
