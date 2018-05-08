@@ -16,7 +16,7 @@
 
 ## Setup/Installation Requirements
 
-> - Click on the Link to the deployed page: [Heroku](https://my-snaps.herokuapp.com/)
+> - Click on the Link to the deployed page: [Heroku](https://my-shotss.herokuapp.com/)
 
 ## Known Bugs
 
